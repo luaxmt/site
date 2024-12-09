@@ -1,6 +1,7 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 
 * {
     background-color:white;
@@ -18,7 +19,7 @@ main {
     padding-top: 60px; /* Ajustar este valor de acordo com a altura do cabeçalho */
 }
 
-.page-container {
+.page-container { /* Todo body está dentro desse container visando acertar a posição do rodapé */
     box-sizing: border-box;
     min-height: 100%;
     display: flex;
@@ -71,7 +72,7 @@ main {
     color: black;
 }
 
-.wrapper {
+.wrapper { /* Engloba o conteúdo principal da página, que não menu nem rodapé */
     display: flex;
     flex-direction: column;
     font-family: Open Sans, sans-serif;
@@ -86,14 +87,14 @@ main {
     color:rgb(95, 95, 95)
 }
 
-.wrapper.long-content {
-    padding-bottom: 7rem; /* Mais espaço para páginas longas */
+.wrapper.long-content { /* Para páginas mais longas, essa div dá mais espaço entre o conteúdo e o rodapé */
+    padding-bottom: 7rem;
     display: flex;
     flex-direction: column;
 }
 
 .content-container1 {
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
@@ -105,26 +106,53 @@ main {
     gap: 20px;
     max-width: 500px;
     align-self: center;
+    margin: 30px 0 0 0;
+}
+
+.content-container3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
 }
 
 .element1 {
-    flex: 3; /* Takes up more space */
-    min-width: 600px; /* Allows proper text wrapping */
+    flex: 3;
+    min-width: 600px;
     max-width: 800px;
     flex-grow: 0;
 }
 
 .element2 {
-    flex: 1; /* Takes up less space */
-    min-width: 200px; /* Minimum width */
+    flex: 1;
+    min-width: 200px;
     font-size: 14px;
     flex-grow: 0;
 }
 
 .element3 {
-    flex: 2; /* Takes up more space */
-    min-width: 300px; /* Allows proper text wrapping */
+    flex: 2;
+    min-width: 300px;
     max-width: 500px;
+}
+
+.element4 {
+    margin: 10px 0 20px 0;
+    height: 350px;
+    width: auto;
+    overflow: hidden;
+}
+
+.carrossel {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.legenda {
+    margin-top: 10px;
+    text-align: justify;
+    text-overflow: ellipsis;
 }
 
 h1 {
@@ -135,7 +163,7 @@ h1 {
 
 h2 {
     font-family: Open Sans, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin-top:0;
 }
 
@@ -156,6 +184,37 @@ h3 {
     text-align: left;
 }
 
+#mais {
+    background-image: url(imgs/monetsunrise.jpg);
+    background-size: cover;
+    background-position: center 68%;
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+#mais h1 {
+    margin: 0 auto;
+    line-height: 270px;
+    font-size: 3em;
+    background: none;
+    color: antiquewhite;
+    top: 50%;
+    left: 50%;
+}
+
+.fundo {
+    background-color: rgb(93, 151, 134);
+    margin: 20px 0 20px 0;
+}
+
+.fundo p {
+    color: antiquewhite;
+    background: none;
+    margin: 20px;
+}
+
 .conteudo-expandido {
     max-height: 0;
     overflow: hidden;
@@ -163,13 +222,11 @@ h3 {
     position: relative;
 }
 
-/* Esconde o checkbox */
-.leia-mais-checkbox {
+.leia-mais-checkbox { /* Esconde o checkbox */
     display: none;
 }
 
-/* Keep the button visible and style it */
-.leia-mais-btn {
+.leia-mais-btn { /* Mantém o botão visível e estiliza */
     display: inline-block;
     color: rgb(95, 95, 95);
     cursor: pointer;
@@ -184,7 +241,7 @@ h3 {
 }
 
 .leia-mais-checkbox:checked ~ .conteudo-expandido {
-    max-height: 500px; /* Adjust based on your content length */
+    max-height: 500px;
     display: block;
 }
 
@@ -198,13 +255,38 @@ h3 {
     text-decoration: underline;
 }
 
-.leia-mais-checkbox:checked ~ .leia-mais-btn {
-    display: inline-block; /* Keeps button visible when checked */
+.leia-mais-checkbox:checked ~ .leia-mais-btn { /* Mantém o botão visível quando clicado */
+    display: inline-block;
+}
+
+.button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 10px;
+    background-color: rgb(175, 175, 175);
+    line-height: 40px;
+    padding: 0 30px 0 30px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: ease-in-out 0.4s;
+}
+
+.button:hover {
+    border: 1px solid rgb(175, 175, 175);
+    background-color:white;
+    color: rgb(175, 175, 175);
 }
 
 form {
     font-size: 14px;
     border: 1px solid rgb(175, 175, 175);
+    border-radius: 10px;
     padding: 15px;
 }
 
@@ -214,11 +296,6 @@ form input, form textarea {
     border: 1px solid rgb(175, 175, 175);
     border-radius: 5px;
     margin-top: 4px;
-}
-
-form input[type=submit] {
-    cursor: pointer;
-    padding: 10px 20px;
 }
 
 #footer {
